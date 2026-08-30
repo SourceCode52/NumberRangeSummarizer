@@ -39,7 +39,11 @@ class DelimitedList implements NumberRangeSummarizer {
                 // First number in the collection
                 startNum = num;
                 prevNum = num;
-            } else if (num == prevNum + 1) {
+            } else if (num.equals(prevNum)) {
+                // duplicate — ignore it
+                continue;
+            } 
+             else if (num.equals(prevNum + 1)) {
                 // Continue the current range
                 prevNum = num;
 

@@ -45,4 +45,10 @@ class DelimitedListTest {
         Collection<Integer> input = summarizer.collect("1,3,5,7");
         assertEquals("1, 3, 5, 7", summarizer.summarizeCollection(input));
     }
+
+    @Test
+    void summarizeCollection_handlesDuplicates() {
+        Collection<Integer> input = summarizer.collect("1,2,2,3,5,5");
+        assertEquals("1-3, 5", summarizer.summarizeCollection(input));
+    }
 }
