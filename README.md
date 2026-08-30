@@ -11,3 +11,5 @@ Implementation of `NumberRangeSummarizer`, producing a comma-delimited list of n
 - Whitespace around numbers/commas is trimmed and tolerated.
 - Empty or null input returns an empty result.
 - Negative numbers are supported as valid integers.
+    - When negative integers are introduced they can cause ambiguity in the output,
+      such as "-5--3" or "-1-1"

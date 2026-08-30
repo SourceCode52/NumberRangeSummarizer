@@ -58,4 +58,14 @@ class DelimitedListTest {
         Collection<Integer> input = summarizer.collect("1,2,2,3,5,5");
         assertEquals("1-3, 5", summarizer.summarizeCollection(input));
     }
+
+    // Test case to handle negative numbers for the summarizeCollection method
+    @Test
+    void summarizeCollection_handlesNegativeNumbers() {
+        // NOTE: output format uses "-" for both range separator and negative
+        // sign, producing ambiguous strings like "-5--3" for negative ranges.
+        // This is a known limitation of the chosen delimited format.
+        Collection<Integer> input = summarizer.collect("-5,-4,-3,-1,0,1");
+        assertEquals("-5--3, -1-1", summarizer.summarizeCollection(input));
+    }
 }
